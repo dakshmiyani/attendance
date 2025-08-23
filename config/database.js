@@ -1,18 +1,30 @@
 
-const mongoose = require('mongoose');
-const uri = "mongodb+srv://dakshmiyanicc:<db_password>@cluster0.v8rzyse.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 
-async function run() {
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+const uri = "mongodb+srv://daksh:daksh1234@cluster0.v8rzyse.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+
+
+ // keep your URI in .env file
+
+const connectDB = async () => {
   try {
-    // Create a Mongoose client with a MongoClientOptions object to set the Stable API version
-    await mongoose.connect(uri, clientOptions);
+    await mongoose.connect(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverApi: { version: "1", strict: true, deprecationErrors: true },
+    });
+
+    // Optional: ping test
     await mongoose.connection.db.admin().command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await mongoose.disconnect();
+    console.log("✅ MongoDB connected & ping successful");
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err.message);
+    process.exit(1); // exit app if DB fails
   }
-}
-run().catch(console.dir);
+};
+
+module.exports = connectDB;
