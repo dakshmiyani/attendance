@@ -16,6 +16,7 @@ require("dotenv").config();
   return { accessToken, refreshToken };
 };
 
+
 const authController = {
   organizationRegistration: async (req,res)=> {
 

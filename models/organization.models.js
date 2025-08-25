@@ -16,11 +16,11 @@ const organizationSchema = new mongoose.Schema({
   location: {
     latitude: {
       type: Number,
-      required: true,
+      // required: true,
     },
     longitude: {
       type: Number,
-      required: true,
+      // required: true,
     },
     radius: {
       type: Number,

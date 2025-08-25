@@ -4,7 +4,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const uri = "mongodb+srv://daksh:daksh1234@cluster0.v8rzyse.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://warangadvait3000:Advait.3000@cluster0.bdx96p0.mongodb.net/";
 
 
 
