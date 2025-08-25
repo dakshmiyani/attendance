@@ -1,14 +1,10 @@
-
-
-
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const uri = "mongodb+srv://warangadvait3000:Advait.3000@cluster0.bdx96p0.mongodb.net/";
+const uri =
+  "mongodb+srv://warangadvait3000:Advait.3000@cluster0.bdx96p0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-
-
- // keep your URI in .env file
+// keep your URI in .env file
 
 const connectDB = async () => {
   try {

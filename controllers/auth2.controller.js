@@ -13,7 +13,7 @@ const generateTokens = (userId) => {
   return { accessToken, refreshToken };
 };
 
-const regiser_orginization = async (req, res) => {
+const register_orginization = async (req, res) => {
   try {
     const { email, password, name, organizationName } = req.body;
     if (!email || !password || !name || !organizationName) {
@@ -74,7 +74,7 @@ const regiser_orginization = async (req, res) => {
 
 const register_user = async (req, res) => {
   try {
-    const { email, password, name,organizationCode } = req.body;
+    const { email, password, name, organizationCode } = req.body;
     if (!email || !password || !name) {
       return res.status(400).json({ message: "All fields are required" });
     }
@@ -84,9 +84,9 @@ const register_user = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
     organization = await Organization.findOne({ name: organizationCode });
-     if (!organization){
-      return res.status(400).json({message:"Invalid organization code" })
-     }
+    if (!organization) {
+      return res.status(400).json({ message: "Invalid organization code" });
+    }
     const user = new User({
       email,
       password,
@@ -180,4 +180,4 @@ const logout = (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 };
 
-module.exports = { regiser_orginization, register_user, login, logout };
+module.exports = { register_orginization, register_user, login, logout };

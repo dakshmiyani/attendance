@@ -1,8 +1,11 @@
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { regiser_orginization, register_user, login, logout } = require('../controllers/auth2.controller');
-
+const {
+  register_orginization,
+  register_user,
+  login,
+  logout,
+} = require("../controllers/auth2.controller");
 
 //User SignUp or Login
 // router.post('/oauth/login', );
@@ -20,18 +23,15 @@ const { regiser_orginization, register_user, login, logout } = require('../contr
 // router.get('/view_profile',authController.viewprofile);
 
 // organizationregister
-router.post('/organization-register', regiser_orginization);
-
+router.post("/organization-register", register_orginization);
 
 // new user register
-router.post('/register-user', register_user);
+router.post("/register-user", register_user);
 
 // login
-router.post('/login', login);
-
+router.post("/login", login);
 
 //For logging out
-router.post('/logout', logout);
+router.post("/logout", logout);
 
-
-module.exports = router
+module.exports = router;
